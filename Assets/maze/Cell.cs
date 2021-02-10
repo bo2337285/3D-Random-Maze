@@ -51,10 +51,17 @@ public class Cell {
         }
         return _walls;
     }
+    public List<Cell> GetNeighborCells () {
+        List<Cell> _cells = new List<Cell> ();
+        foreach (var item in neighborCells) {
+            if (item != null && !item.isVisited) _cells.Add (item);
+        }
+        return _cells;
+    }
 
     public void SetVisited () {
         this.isVisited = true;
         // 已访问过的格子,上绿色
-        gameObject.GetComponent<MeshRenderer> ().material.color = new Color (0, 1, 1);
+        // gameObject.GetComponent<MeshRenderer> ().material.color = new Color (0, 1, 1);
     }
 }
