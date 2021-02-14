@@ -21,9 +21,9 @@ public class CellWall : IEquatable<CellWall> {
         }
         this.isBorder = isBorder;
         // 是边界墙体,则染成蓝色
-        if (this.isBorder) {
-            gameObject.GetComponent<MeshRenderer> ().material.color = new Color (0, 0, 1);
-        }
+        // if (this.isBorder) {
+        //     gameObject.GetComponent<MeshRenderer> ().material.color = new Color (0, 0, 1);
+        // }
         index = new Vector2 (x, y);
     }
     public void Destroy () {

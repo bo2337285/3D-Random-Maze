@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEditor;
 
 public class MazeManager : MonoBehaviour
 {
@@ -17,6 +18,8 @@ public class MazeManager : MonoBehaviour
     public int originX = 0, originY = 0;
     Camera _camera;
     GameObject mainCamera;
+    public string mapName = "map";
+    public int mapCount = 0;
 
     private void Start()
     {
@@ -26,6 +29,16 @@ public class MazeManager : MonoBehaviour
     private void Update()
     {
         MouseZoom();
+    }
+    public void SaveMap()
+    {
+        bool flag = false;
+        PrefabUtility.SaveAsPrefabAsset(mapGroup, "Assets/" + mapName + "_" + mapCount.ToString() + ".prefab", out flag);
+        if (flag)
+        {
+            mapCount++;
+            Debug.Log("save map success!");
+        }
     }
     void MouseZoom()
     {
